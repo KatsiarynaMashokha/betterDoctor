@@ -1,0 +1,21 @@
+{
+  "name": "betterdoctor",
+  "description": "An that helps with finding a doctor",
+  "main": "gulpfile.js",
+  "authors": [
+    "Kate Mashokha"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+   "jquery": "^3.2.1",
+   "bootstrap": "^3.3.7"
+ }
+}
