@@ -1,0 +1,22 @@
+body {
+  background: url('../img/bg.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.jumbotron {
+  text-align: center;
+}
+
+input[type=radio] {
+  margin-top: 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Corben', Georgia, Times, serif;
+    font-weight: bolder;
+}
+p, div {
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}

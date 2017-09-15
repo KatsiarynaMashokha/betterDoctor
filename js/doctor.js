@@ -1,7 +1,7 @@
 let apiKey = require('./../.env').apiKey;
 
 export let Doctor = {
-  apiRequest: function(issue, displayFunction) {
+  apiRequestSymptom: function(issue, displayFunction) {
     $.ajax({
       url: `https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=45.5231%2C%20-122.6765%2C50&skip=0&limit=20&user_key=${apiKey}`,
       type: 'GET',
@@ -10,6 +10,22 @@ export let Doctor = {
       },
       success: (response) => {
         this.saveDoctorsToArray(response, displayFunction);
+      },
+      error: function() {
+        $('#results').text('No doctors found');
+      }
+    });
+  },
+
+  apiRequestDoctorSearch: function(firstName, lastName, displayFunction) {
+    $.ajax({
+      url: `https://api.betterdoctor.com/2016-03-01/practices?name=${firstName}%20${lastName}&location=45.5231%2C%20-122.6765%2C50&skip=0&limit=10&user_key=${apiKey}`,
+      type: 'GET',
+      data: {
+        format: 'json'
+      },
+      success: (response) => {
+        this.getSearchedDoctorInfo(response, displayFunction);
       },
       error: function() {
         $('#results').text('No doctors found');
@@ -29,11 +45,29 @@ export let Doctor = {
           website: that.formatWebsite(doctor.practices[0].website),
           acceptsNewPatients: that.acceptsPatients(doctor.practices[0].accepts_new_patients)
         });
-
     });
       console.log(doctorsArray);
       displayFunction(doctorsArray);
     },
+
+    getSearchedDoctorInfo: function(response, displayFunction) {
+      let doctorsArray = [];
+      let that = this;
+      response.data.forEach(function(doctor) {
+        doctorsArray.push(
+          {
+            // name: doctor.doctors[0].profile.first_name + " " + doctor.doctors[0].profile.last_name,
+            name: doctor.name,
+            address: doctor.visit_address.street + ", " + doctor.visit_address.city + ", " + doctor.visit_address.state + ", " + doctor.visit_address.zip,
+            phone: doctor.phones[0].number,
+            acceptsNewPatients: that.acceptsPatients(doctor.accepts_new_patients)
+          });
+      });
+      console.log(doctorsArray);
+      displayFunction(doctorsArray);
+
+    },
+
 
     acceptsPatients(value) {
       if (value === true) {
