@@ -12,7 +12,7 @@ $(function() {
 
     function displayDoctors(array) {
       array.forEach(function(item){
-        $('#results').append("<li>" + item.name + '<p>' + item.address + 'Phone: ' + item.phone + 'Accepts new patients: ' + item.acceptsNewPatients + 'Website: ' + item.website);
+        $('#results').append("<li>" + item.name + '<p>' + item.address + '<br>' + 'Phone: ' + item.phone + '<br>' + 'Accepts new patients: ' + item.acceptsNewPatients + '<br>' + 'Website: ' + item.website);
       });
 
       $('input').val('');
