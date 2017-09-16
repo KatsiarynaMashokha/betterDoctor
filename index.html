@@ -16,11 +16,11 @@
     </div>
     <div class="row">
       <div class="col-md-4">
-        <p>Search by symptoms
+        <h4>Search by a symptom<h4>
           <form id="userSymptom">
             <div class="form-group">
               <label for="symptom">Enter your symptom:</label>
-              <input id="symptom" class="form-control" type="text">
+              <input id="symptom" class="form-control" type="text" required>
             </div>
             <button type="submit" class="btn">Find Doctors</button>
           </form>
@@ -28,36 +28,25 @@
       <div class="col-md-4">
       </div>
       <div class="col-md-4">
-        <p>Search by a Doctor's name
+        <h4>Search by a Doctor's name<h4>
           <form id="doctorName">
             <div class="form-group">
-              <label for="firstName">First name:</label>
-              <input id="firstName" class="form-control" type="text">
-              <label for="lastName">Last name:</label>
-              <input id="lastName" class="form-control" type="text">
+              <label for="firstName">Enter name:</label>
+              <input id="firstName" class="form-control" type="text" required>
             </div>
             <button type="submit" class="btn">Find Doctors</button>
           </form>
       </div>
     </div>
-    <!-- <div class="container">
-      <form id="searchOptions">
-        <input type="radio" name="search" value="0" checked> Enter a symptom<br>
-        <input type="radio" name="search" value=1> Enter a Doctor's name<br>
+    <div class="row">
+      <div class="col-md-4">
+        <div id="resultsOne"></div>
       </div>
-      </form>
-      <form id="userInfo">
-        <div class="form-group">
-          <label for="symptom">Enter your search query</label>
-          <input id="symptom" class="form-control" type="text">
-        </div>
-        <button type="submit" class="btn">Find Doctors</button>
-      </form> -->
-      <div id="results">
-        <ol></ol>
-      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div id="resultsTwo"></div>
       </div>
     </div>
-  </div>
+    </div>
   </body>
 </html>

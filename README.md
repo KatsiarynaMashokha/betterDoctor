@@ -8,7 +8,7 @@ There are two different api requests are made in this app:
 https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=45.5231%2C%20-122.6765%2C50&skip=0&limit=20&user_key=${apiKey}
 
 2) Searches for doctors based on the first and/or last name:
-https://api.betterdoctor.com/2016-03-01/practices?name=${firstName}%20${lastName}&location=45.5231%2C%20-122.6765%2C50&skip=0&limit=10&user_key=${apiKey}
+https://api.betterdoctor.com/2016-03-01/practices?name=${firstName}%20&location=45.5231%2C%20-122.6765%2C50&skip=0&limit=10&user_key=${apiKey}
 
 ## Development Specifications
 | Behavior      | Example Input         | Example Output        |

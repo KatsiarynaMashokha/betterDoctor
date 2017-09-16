@@ -17,9 +17,9 @@ export let Doctor = {
     });
   },
 
-  apiRequestDoctorSearch: function(firstName, lastName, displayFunction) {
+  apiRequestDoctorSearch: function(firstName, displayFunction) {
     $.ajax({
-      url: `https://api.betterdoctor.com/2016-03-01/practices?name=${firstName}%20${lastName}&location=45.5231%2C%20-122.6765%2C50&skip=0&limit=10&user_key=${apiKey}`,
+      url: `https://api.betterdoctor.com/2016-03-01/practices?name=${firstName}%20&location=45.5231%2C%20-122.6765%2C50&skip=0&limit=10&user_key=${apiKey}`,
       type: 'GET',
       data: {
         format: 'json'
@@ -51,12 +51,14 @@ export let Doctor = {
     },
 
     getSearchedDoctorInfo: function(response, displayFunction) {
+      // if (response.length === 0) {
+      //   return 'Please check your query';
+      // }
       let doctorsArray = [];
       let that = this;
       response.data.forEach(function(doctor) {
         doctorsArray.push(
           {
-            // name: doctor.doctors[0].profile.first_name + " " + doctor.doctors[0].profile.last_name,
             name: doctor.name,
             address: doctor.visit_address.street + ", " + doctor.visit_address.city + ", " + doctor.visit_address.state + ", " + doctor.visit_address.zip,
             phone: doctor.phones[0].number,
@@ -65,7 +67,6 @@ export let Doctor = {
       });
       console.log(doctorsArray);
       displayFunction(doctorsArray);
-
     },
 
 

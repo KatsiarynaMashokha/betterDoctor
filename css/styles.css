@@ -2,21 +2,31 @@ body {
   background: url('../img/bg.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
-
 
 .jumbotron {
   text-align: center;
 }
 
-input[type=radio] {
-  margin-top: 15px;
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Corben', Georgia, Times, serif;
-    font-weight: bolder;
+    padding-bottom: 10px;
 }
 p, div {
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}
+
+#resultsOne, #resultsTwo {
+  font-weight: bold;
+  padding-top: 10px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.btn:hover {
+  background-color: #008080;
+}
+
+label {
+  padding-top: 10px;
 }
