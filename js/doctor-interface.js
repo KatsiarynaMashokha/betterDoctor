@@ -16,16 +16,25 @@ $(function() {
   });
 
   function displayDoctors(array) {
-    $('#resultsOne').text('');
-    array.forEach(function(item){
-      $('#resultsOne').append('<h5>' + item.name + '</h5>' + '<p>' + item.address + '<br>' + 'Phone: ' + item.phone + '<br>' + 'Accepts new patients: ' + item.acceptsNewPatients + '<br>' + 'Website: ' + item.website);
-    });
+    if (array.length === 0) {
+      $('#resultsOne').text('No results found. Check you query please');
+    } else {
+      console.log(array + 'array');
+      $('#resultsOne').text('');
+      array.forEach(function(item){
+        $('#resultsOne').append('<h5>' + item.name + '</h5>' + '<p>' + item.address + '<br>' + 'Phone: ' + item.phone + '<br>' + 'Accepts new patients: ' + item.acceptsNewPatients + '<br>' + 'Website: ' + item.website);
+      });
+    }
   }
 
   function displaySearchedDoctor(array) {
+    if (array.length === 0) {
+      $('#resultsTwo').text('No results found. Check you query please');
+    } else {
     $('#resultsTwo').text('');
     array.forEach(function(item){
       $('#resultsTwo').append('<h5>' + item.name + '</h5>' + item.address + '<br>' + 'Phone: ' + item.phone + '<br>' + 'Accepts new patients: ' + item.acceptsNewPatients);
     });
   }
+}
 });

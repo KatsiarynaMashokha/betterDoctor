@@ -3,7 +3,8 @@ let apiKey = require('./../.env').apiKey;
 export let Doctor = {
   apiRequestSymptom: function(issue, displayFunction) {
     $.ajax({
-      url: `https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=45.5231%2C%20-122.6765%2C50&skip=0&limit=20&user_key=${apiKey}`,
+       url:
+       `https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=45.5231%2C-122.6765%2C50&skip=0&limit=20&user_key=${apiKey}`,
       type: 'GET',
       data: {
         format: 'json'
@@ -11,8 +12,8 @@ export let Doctor = {
       success: (response) => {
         this.saveDoctorsToArray(response, displayFunction);
       },
-      error: function() {
-        $('#results').text('No doctors found');
+      error: (response) => {
+        $('#resultsOne').text(`There is an error to retrieve the data. Status code: ${response.status}`);
       }
     });
   },
@@ -27,8 +28,8 @@ export let Doctor = {
       success: (response) => {
         this.getSearchedDoctorInfo(response, displayFunction);
       },
-      error: function() {
-        $('#results').text('No doctors found');
+        error: (response) => {
+        $('#resultsTwo').text(`There is an error to retrieve the data. Status code: ${response.status}`);
       }
     });
   },
@@ -46,14 +47,10 @@ export let Doctor = {
           acceptsNewPatients: that.acceptsPatients(doctor.practices[0].accepts_new_patients)
         });
     });
-      console.log(doctorsArray);
       displayFunction(doctorsArray);
     },
 
     getSearchedDoctorInfo: function(response, displayFunction) {
-      // if (response.length === 0) {
-      //   return 'Please check your query';
-      // }
       let doctorsArray = [];
       let that = this;
       response.data.forEach(function(doctor) {
@@ -65,7 +62,6 @@ export let Doctor = {
             acceptsNewPatients: that.acceptsPatients(doctor.accepts_new_patients)
           });
       });
-      console.log(doctorsArray);
       displayFunction(doctorsArray);
     },
 
