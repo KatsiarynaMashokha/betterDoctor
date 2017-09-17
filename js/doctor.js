@@ -65,7 +65,6 @@ export let Doctor = {
       displayFunction(doctorsArray);
     },
 
-
     acceptsPatients(value) {
       if (value === true) {
         return 'Yes';

@@ -12,14 +12,14 @@ $(function() {
       event.preventDefault();
       let fName = $('#firstName').val();
       $('input').val('');
-      Doctor.apiRequestDoctorSearch(fName, displaySearchedDoctor);
+      Doctor.apiRequestDoctorSearch(fName, displayDoctors);
   });
 
   function displayDoctors(array) {
+    let resOne = 'resultsOne';
     if (array.length === 0) {
       $('#resultsOne').text('No results found. Check you query please');
     } else {
-      console.log(array + 'array');
       $('#resultsOne').text('');
       array.forEach(function(item){
         $('#resultsOne').append('<h5>' + item.name + '</h5>' + '<p>' + item.address + '<br>' + 'Phone: ' + item.phone + '<br>' + 'Accepts new patients: ' + item.acceptsNewPatients + '<br>' + 'Website: ' + item.website);
