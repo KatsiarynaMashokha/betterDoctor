@@ -7,8 +7,17 @@ There are two different api requests are made in this app:
 1) Searches for doctors on Portland area (within 50 miles) bases on the symptom:
 https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=45.5231%2C%20-122.6765%2C50&skip=0&limit=20&user_key=${apiKey}
 
+![Alt text](img/symptom.png)
+
+![Alt text](img/symptomSearch.png)
+
 2) Searches for doctors based on the first and/or last name:
 https://api.betterdoctor.com/2016-03-01/practices?name=${firstName}%20&location=45.5231%2C%20-122.6765%2C50&skip=0&limit=10&user_key=${apiKey}
+
+![Alt text](img/name.png)
+
+![Alt text](img/nameSearch.png)
+
 
 ## Development Specifications
 | Behavior      | Example Input         | Example Output        |
